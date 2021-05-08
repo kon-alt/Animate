@@ -1,0 +1,67 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+.app {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(to bottom right, #05061b, #06082c);
+}
+
+.svg-item {
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: none;
+	height: 100vh;
+	width: 100%;
+	object-fit: cover;
+	object-position: top;
+
+	&--show {
+		display: block;
+	}
+}
+
+.loader {
+	max-width: 180px;
+	width: 100%;
+	display: inline-flex;
+	justify-content: space-between;
+	&-item {
+		display: block;
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		background-color: #fff;
+		transform: scale(-1);
+		transition: 0.5s;
+
+		&:nth-child(1) {
+			animation: increase1 1s ease 0s infinite;
+		}
+		&:nth-child(2) {
+			animation: increase1 1s ease 0.3s infinite;
+		}
+		&:nth-child(3) {
+			animation: increase1 1s ease 0.6s infinite;
+		}
+	}
+
+	&--hide {
+		display: none;
+	}
+}
+
+@keyframes increase1 {
+	from {
+		transform: scale(-1);
+	}
+	to {
+		transform: scale(1);
+	}
+}
